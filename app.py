@@ -8,10 +8,15 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Page config
 
-st.set_page_config(page_title="Glass Manufacturing AI Assistant", layout="wide")
+st.set_page_config(
+    page_title="Glass Manufacturing AI Assistant",
+    layout="wide"
+)
 
 st.sidebar.title("Glass Manufacturing AI Assistant")
-st.sidebar.info("SQL analytics, defect prediction, and chatbot insights for production data.")
+st.sidebar.info(
+    "SQL analytics, defect prediction, and chatbot insights for production data."
+)
 
 
 # File paths
@@ -22,11 +27,10 @@ DB_PATH = "glass_factory.db"
 
 # Database setup
 
-def ensure_database():
+def ensure_database() -> None:
     """Create the SQLite database from CSV if it does not exist."""
     if not os.path.exists(CSV_PATH):
-        st.error(f"Required data file not found: {CSV_PATH}")
-        st.stop()
+        raise FileNotFoundError(f"Required data file not found: {CSV_PATH}")
 
     if not os.path.exists(DB_PATH):
         df_temp = pd.read_csv(CSV_PATH)
@@ -34,20 +38,24 @@ def ensure_database():
         df_temp.to_sql("production", conn, if_exists="replace", index=False)
         conn.close()
 
+
 @st.cache_data
-def load_data():
-    """Load CSV data."""
+def load_data() -> pd.DataFrame:
+    """Load the CSV dataset."""
     return pd.read_csv(CSV_PATH)
+
 
 @st.cache_resource
 def get_connection():
-    """Create a reusable SQLite connection."""
+    """Create and cache SQLite connection."""
     return sqlite3.connect(DB_PATH, check_same_thread=False)
 
+
 def run_query(query: str) -> pd.DataFrame:
-    """Run SQL query and return DataFrame."""
+    """Run a SQL query and return the result as a DataFrame."""
     conn = get_connection()
     return pd.read_sql(query, conn)
+
 
 
 # Model training
@@ -80,12 +88,19 @@ def train_model(dataframe: pd.DataFrame):
     return model, feature_cols, score
 
 
+
 # Helper functions
 
 def format_small_number(x):
     if isinstance(x, float):
         return round(x, 4)
     return x
+
+
+def format_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """Safely format numeric display values."""
+    return df.apply(lambda col: col.map(format_small_number))
+
 
 def chatbot_response(question: str):
     q = question.lower().strip()
@@ -150,17 +165,25 @@ def chatbot_response(question: str):
     return None
 
 
+
 # Initialize app data
 
-ensure_database()
-df = load_data()
-model, feature_cols, model_score = train_model(df)
+try:
+    ensure_database()
+    df = load_data()
+    model, feature_cols, model_score = train_model(df)
+except Exception as e:
+    st.error(f"App failed to start: {e}")
+    st.stop()
+
 
 
 # UI
 
 st.title("Glass Manufacturing Analytics & AI Assistant")
-st.write("An end-to-end mini project with SQL analytics, defect prediction, and chatbot support.")
+st.write(
+    "An end-to-end mini project with SQL analytics, defect prediction, and chatbot support."
+)
 
 tab1, tab2, tab3, tab4 = st.tabs([
     "Dataset Preview",
@@ -183,6 +206,7 @@ with tab1:
 
     st.subheader("Quick Summary")
     st.dataframe(df.describe(), width="stretch")
+
 
 
 # Tab 2: SQL Analytics
@@ -259,6 +283,7 @@ with tab2:
         st.dataframe(result, width="stretch")
 
 
+
 # Tab 3: Defect Prediction
 
 with tab3:
@@ -311,9 +336,13 @@ with tab3:
         probability = model.predict_proba(input_df)[0][1]
 
         if prediction == 1:
-            st.error(f"High defect risk detected. Probability: {round(probability * 100, 2)}%")
+            st.error(
+                f"High defect risk detected. Probability: {round(probability * 100, 2)}%"
+            )
         else:
-            st.success(f"Low defect risk. Probability: {round(probability * 100, 2)}%")
+            st.success(
+                f"Low defect risk. Probability: {round(probability * 100, 2)}%"
+            )
 
     st.subheader("Feature Importance")
     importance_df = pd.DataFrame({
@@ -323,6 +352,7 @@ with tab3:
 
     st.dataframe(importance_df, width="stretch")
     st.bar_chart(importance_df.set_index("feature"))
+
 
 
 # Tab 4: Chatbot
@@ -347,6 +377,8 @@ with tab4:
         result = chatbot_response(user_question)
 
         if result is not None:
-            st.dataframe(result.applymap(format_small_number), width="stretch")
+            st.dataframe(format_dataframe(result), width="stretch")
         else:
-            st.warning("I do not understand that question yet. Please try one of the supported examples.")
+            st.warning(
+                "I do not understand that question yet. Please try one of the supported examples."
+            )
