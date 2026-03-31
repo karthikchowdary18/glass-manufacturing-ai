@@ -1,5 +1,6 @@
 # Glass Manufacturing Analytics, Defect Prediction & AI Chatbot
 
+## Try Chatbot : https://glass-manufacturing-ai.streamlit.app/
 An end-to-end manufacturing analytics project built with Python, SQLite, scikit-learn, and Streamlit.
 
 This project simulates a glass manufacturing environment and demonstrates how production data can be analyzed, used for defect prediction, and queried through a chatbot-style interface.
