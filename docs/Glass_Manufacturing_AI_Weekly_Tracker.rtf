@@ -1,0 +1,292 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}}
+\fs24
+\b Glass Manufacturing AI Weekly Project Tracker\b0\par
+\par
+Project: Glass Manufacturing AI\par
+Owner: Karthik\par
+Start Date: June 14, 2026\par
+Target: Build a meaningful AI/ML project that is strong enough for German-market job applications.\par
+\par
+\b How To Use This Tracker\b0\par
+1. At the start of each week, set your planned hours and focus.\par
+2. Check off learning and implementation items as you complete them.\par
+3. Write blockers early so they do not slow you down for multiple days.\par
+4. At the end of each week, summarize what worked, what did not, and what to improve next week.\par
+\par
+\b Success Criteria For V1\b0\par
+[ ] Clean project architecture\par
+[ ] PostgreSQL database with realistic manufacturing data\par
+[ ] One production-style ML pipeline for defect prediction\par
+[ ] FastAPI backend with useful endpoints\par
+[ ] LLM or RAG assistant with grounded answers\par
+[ ] Streamlit dashboard connected to backend\par
+[ ] Docker setup\par
+[ ] Tests, logging, and strong README\par
+\par
+\b Weekly Status Legend\b0\par
+Not Started | In Progress | Done | Blocked\par
+\par
+\b Week 1: June 14 - June 20, 2026\b0\par
+Theme: Foundation and Architecture\par
+Goal: Turn the repo from a mini-project into an engineering project.\par
+\par
+Learning Goals\par
+[ ] Learn FastAPI basics: routes, request and response models, project structure\par
+[ ] Learn Docker basics for Python apps\par
+[ ] Learn environment variable management with .env files\par
+[ ] Learn how to separate frontend, backend, and data logic\par
+\par
+Implementation Goals\par
+[ ] Create folders: apps, services, data, pipelines, tests, docs, infra\par
+[ ] Move Streamlit app into apps/dashboard\par
+[ ] Create FastAPI starter app in services/api\par
+[ ] Add requirements cleanup and config management\par
+[ ] Add Dockerfile and docker-compose starter setup\par
+\par
+Deliverables\par
+[ ] Refactored repo structure\par
+[ ] FastAPI app runs locally\par
+[ ] Streamlit app still runs after refactor\par
+[ ] Basic Docker setup committed\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Week 2: June 21 - June 27, 2026\b0\par
+Theme: Database and Domain Modeling\par
+Goal: Make the system look like a real manufacturing platform.\par
+\par
+Learning Goals\par
+[ ] Learn PostgreSQL basics\par
+[ ] Learn relational schema design\par
+[ ] Learn SQLAlchemy or another Python database access pattern\par
+[ ] Learn database migrations at a basic level\par
+\par
+Implementation Goals\par
+[ ] Design tables for production, machines, maintenance_logs, quality_checks, shift_logs, documents\par
+[ ] Replace single-table thinking with connected entities\par
+[ ] Add database connection settings to backend\par
+[ ] Create seed scripts for local development\par
+\par
+Deliverables\par
+[ ] PostgreSQL schema drafted and implemented\par
+[ ] Backend connects to database\par
+[ ] Sample manufacturing records inserted\par
+[ ] ER-style data model documented in docs\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Week 3: June 28 - July 4, 2026\b0\par
+Theme: Data Generation and ETL\par
+Goal: Build realistic data instead of tutorial-like random rows.\par
+\par
+Learning Goals\par
+[ ] Learn ETL flow design\par
+[ ] Learn data validation basics\par
+[ ] Learn feature engineering for manufacturing-style data\par
+[ ] Learn how data drift can appear in production systems\par
+\par
+Implementation Goals\par
+[ ] Expand synthetic data with time-series behavior, machine aging, failures, delays, and shift effects\par
+[ ] Add maintenance logs and quality inspection records\par
+[ ] Create raw-to-processed pipeline scripts\par
+[ ] Load processed data into PostgreSQL\par
+\par
+Deliverables\par
+[ ] Better synthetic dataset\par
+[ ] Repeatable ETL pipeline\par
+[ ] Processed tables in database\par
+[ ] Data assumptions written in docs\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Week 4: July 5 - July 11, 2026\b0\par
+Theme: ML Pipeline V1\par
+Goal: Deliver one serious ML feature recruiters can understand quickly.\par
+\par
+Learning Goals\par
+[ ] Learn scikit-learn pipelines\par
+[ ] Learn evaluation metrics: precision, recall, F1, ROC-AUC\par
+[ ] Learn class imbalance handling\par
+[ ] Learn model persistence and reproducibility basics\par
+\par
+Implementation Goals\par
+[ ] Build defect prediction training pipeline\par
+[ ] Save model artifacts and evaluation metrics\par
+[ ] Add feature importance or explainability summary\par
+[ ] Add simple model card with assumptions and limits\par
+\par
+Deliverables\par
+[ ] Trainable ML pipeline\par
+[ ] Evaluation report\par
+[ ] Saved model for inference\par
+[ ] Model documentation in docs\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Week 5: July 12 - July 18, 2026\b0\par
+Theme: Backend API and Productization\par
+Goal: Expose your work through APIs, not just notebooks or scripts.\par
+\par
+Learning Goals\par
+[ ] Learn REST API design principles\par
+[ ] Learn Pydantic validation\par
+[ ] Learn backend testing basics\par
+[ ] Learn how to structure prediction endpoints safely\par
+\par
+Implementation Goals\par
+[ ] Add endpoints for KPIs, trends, machine performance, and prediction requests\par
+[ ] Add health check and version endpoints\par
+[ ] Add request and response schemas\par
+[ ] Add basic API tests\par
+\par
+Deliverables\par
+[ ] Running API with documented routes\par
+[ ] Prediction endpoint connected to saved model\par
+[ ] Analytics endpoints returning database insights\par
+[ ] API test coverage started\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Week 6: July 19 - July 25, 2026\b0\par
+Theme: LLM or RAG Assistant V1\par
+Goal: Add a real AI assistant layer that is grounded and useful.\par
+\par
+Learning Goals\par
+[ ] Learn embeddings and chunking basics\par
+[ ] Learn retrieval-augmented generation concepts\par
+[ ] Learn prompt design for grounded answers\par
+[ ] Learn how to separate SQL analytics from document Q and A\par
+\par
+Implementation Goals\par
+[ ] Add a document set: SOPs, maintenance notes, quality guidelines, safety procedures\par
+[ ] Build retrieval pipeline over the document set\par
+[ ] Return answers with citations or source references\par
+[ ] Keep unsupported questions safely handled\par
+\par
+Deliverables\par
+[ ] Working assistant for manufacturing documents\par
+[ ] Source-grounded answers\par
+[ ] Prompt and retrieval logic documented\par
+[ ] Clear statement of assistant limitations\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Week 7: July 26 - August 1, 2026\b0\par
+Theme: MLOps, Testing, and Monitoring\par
+Goal: Add the engineering signals that many candidates skip.\par
+\par
+Learning Goals\par
+[ ] Learn experiment tracking basics\par
+[ ] Learn logging and monitoring basics\par
+[ ] Learn drift concepts at a simple practical level\par
+[ ] Learn GitHub Actions or another CI workflow\par
+\par
+Implementation Goals\par
+[ ] Add experiment tracking for model runs\par
+[ ] Add structured logging for API and predictions\par
+[ ] Add basic drift check or data quality check\par
+[ ] Add CI for linting and tests\par
+\par
+Deliverables\par
+[ ] Experiment tracking working\par
+[ ] Logging in place\par
+[ ] CI pipeline running\par
+[ ] More reliable project with tests and checks\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Week 8: August 2 - August 8, 2026\b0\par
+Theme: Recruiter-Ready Polish\par
+Goal: Make the project easy to understand, demo, and trust.\par
+\par
+Learning Goals\par
+[ ] Learn how to write a strong project README\par
+[ ] Learn how to explain architecture simply\par
+[ ] Learn how to present impact, tradeoffs, and limitations\par
+[ ] Learn how to record a short technical demo\par
+\par
+Implementation Goals\par
+[ ] Rewrite README with architecture, features, setup, screenshots, and roadmap\par
+[ ] Create architecture diagram\par
+[ ] Add demo screenshots or short video link\par
+[ ] Add sections for business value, limitations, and AI governance awareness\par
+\par
+Deliverables\par
+[ ] Strong README\par
+[ ] Demo-ready project\par
+[ ] Architecture diagram\par
+[ ] Application-ready GitHub repo\par
+\par
+Tracking\par
+Status:\tab Not Started\par
+Hours Planned:\tab\par
+Hours Actual:\tab\par
+Biggest Blocker:\tab\par
+Week Notes:\tab\par
+End-of-Week Review:\tab\par
+\par
+\b Application Checkpoints\b0\par
+After Week 4: You can mention an in-progress industrial ML platform project.\par
+After Week 6: You can start applying to some companies if the repo is clean and demoable.\par
+After Week 8: You should have a meaningful, recruiter-facing V1 project.\par
+\par
+\b Optional Phase 2 Upgrades\b0\par
+[ ] Predictive maintenance model\par
+[ ] Time-series forecasting\par
+[ ] Energy optimization recommendations\par
+[ ] English and German assistant support\par
+[ ] Computer vision defect detection\par
+[ ] Advanced deployment and monitoring\par
+\par
+\b Weekly Reflection Template\b0\par
+Wins This Week:\tab\par
+What Slowed Me Down:\tab\par
+What I Learned:\tab\par
+What I Will Do First Next Week:\tab\par
+\par
+\b Final Reminder\b0\par
+Do not try to build everything at once. Finish V1 first. A smaller, working, well-documented project is much more valuable than a huge unfinished one.\par
+}

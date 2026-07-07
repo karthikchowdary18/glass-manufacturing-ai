@@ -2,4 +2,9 @@ pandas
 numpy
 scikit-learn
 matplotlib
-streamlit>=1.50,<2
+altair
+streamlit
+fastapi
+uvicorn
+python-dotenv
+pytest
